@@ -1,0 +1,15 @@
+line := phrase (ingredient phrase)+ endl
+ingredient := ingredient_start phrase ingredient_options
+ingredient_options := ingredient_option_start quantity ingredient_option_stop
+quantity := number (unit_start unit)?
+number := int | fraction | float
+ingredient_start := '@'
+ingredient_option_start := '{'
+ingredient_option_stop := '}'
+unit_start := '%'
+int := #"\d+"
+float := #"\d*\.\d+"
+fraction := #"\d+\/\d+"
+unit := #"[A-Za-z]+"
+phrase := #"[A-Za-z]+(\s+[A-Za-z]+)+"
+endl := #"\R"
